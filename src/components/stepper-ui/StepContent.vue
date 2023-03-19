@@ -1,0 +1,34 @@
+<script setup lang="ts">
+  import PersonalInfo from '../PersonalInfo.vue';
+
+  defineProps({
+    title: { type: String, required: true },
+    description: { type: String, required: true },
+  })
+
+</script>
+
+<template>
+  <div class="card">
+    <h2>{{title}}</h2>
+    <p>{{description}}</p>
+    <PersonalInfo />
+  </div>
+</template>
+
+<style lang="scss" scoped>
+  .card {
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 20px;
+    margin: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 70vh;
+    p {
+      margin-bottom: 20px;
+    }
+    overflow: auto;
+  }
+</style>
+
+

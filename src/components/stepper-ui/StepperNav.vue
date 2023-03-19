@@ -2,7 +2,7 @@
 </script>
 
 <template>
-  <div class="stepper-container">
+  <div class="stepper-nav">
     <ul>
       <li>
         <div>
@@ -29,14 +29,13 @@
 </template>
 
 <style lang="scss" scoped>
-  .stepper-container {
+  .stepper-nav {
     display: flex;
-    aspect-ratio: 375 / 172;
-    background: url('../assets/bg-sidebar-mobile.svg') no-repeat center center/cover;
+    background: url('../../assets/bg-sidebar-mobile.svg') no-repeat center center/cover;
   }
   ul {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     color: var(--white);
     li {
       > div {
@@ -48,6 +47,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        user-select: none;
         &:hover {
           font-weight: 700;
           background-color: var(--light-blue);
@@ -56,7 +56,11 @@
       }
     }
   }
-  @media (max-width: 1024px) {
+  @media (max-width: 767px) {
+    .stepper-nav {
+      height: 25vh;
+      background: url('../../assets/bg-sidebar-mobile.svg') no-repeat center center/cover;
+    }
     ul {
       margin: 30px auto;
     }

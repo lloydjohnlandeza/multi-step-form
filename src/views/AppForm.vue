@@ -1,13 +1,11 @@
 <template>
   <main>
-    <Stepper />
-    <Step />
+    <AppStepper />
   </main>
 </template>
 
 <script setup lang="ts">
-import Stepper from '../components/Stepper.vue'
-import Step from '../components/Step.vue'
+import AppStepper from '../components/AppStepper.vue'
 </script>
 
 <style scoped>

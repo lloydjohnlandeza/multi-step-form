@@ -53,22 +53,26 @@
   --alabaster: hsl(228, 49%, 59%);
   --white: hsl(0, 0%, 100%);
 
-  --transition-duration: 0.5s;
+  --transition-duration: 0.3s;
+
+  --h1: 2rem;
+  --h2: 1.5rem;
+  --h3: 1.25rem;
+  --h4: 1.125rem;
+  --h5: 1rem;
+  --h6: 0.875rem;
+
 }
 
 /* semantic color variables for this project */
 :root {
   --color-background: var(--magnolia);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
 
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
+  --color-border: var(--light-blue);
+  /* --color-border-hover: var(--vt-c-divider-light-1); */
 
   --color-heading: var(--marine-blue);
   --color-text: var(--cool-gray);
-
-  --section-gap: 160px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -103,11 +107,41 @@ body {
   font-family: 'Ubuntu';
   font-size: 16px;
   font-style: normal;
-
   font-weight: 400;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-heading);
+  font-family: 'Ubuntu';
+  font-weight: 700;
+  font-style: normal;
+}
+
+h1 {
+  font-size: var(--h1)
+}
+
+h2 {
+  font-size: var(--h2)
+}
+
+h3 {
+  font-size: var(--h3)
+}
+
+h4 {
+  font-size: var(--h4)
+}
+
+h5 {
+  font-size: var(--h5)
+}
+
+h6 {
+  font-size: var(--h6)
 }
 
 ul, li {
