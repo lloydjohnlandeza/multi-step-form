@@ -1,16 +1,29 @@
 <script setup lang="ts">
-  import type { InputHTMLAttributes, useAttrs } from 'vue';
+  import { useAttrs, computed } from 'vue';
+  import type { InputHTMLAttributes } from 'vue';
+  import type { ErrorObject } from '@vuelidate/core'
 
-  defineProps({
+  const props = defineProps({
     label: { type: String, required: false },
+    errors: { type: Array<ErrorObject>, required: false }
   })
+
   const attrs: InputHTMLAttributes = useAttrs();
 
+  const displayFirstError = computed(() => {
+    if (props.errors?.length) {
+      return props.errors[0].$message
+    }
+    return ''
+  })
 </script>
 
 <template>
   <div class="input-container">
-    <label v-if="label" :for="attrs.name">{{label}}</label>
+    <label v-if="label" :for="attrs.name">
+      <span>{{label}}</span>
+      <span v-if="errors?.length">{{displayFirstError}}</span>
+    </label>
     <input v-bind="attrs" />
   </div>
 </template>
@@ -19,7 +32,15 @@
   label {
     color: var(--color-heading);
     font-size: var(--h6);
-    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    span {
+      font-weight: 500;
+      &:nth-child(2) {
+        font-weight: 700;
+        color: var(--strawberry-red);
+      }
+    }
   }
   input {
     /* Remove default styles */

@@ -1,27 +1,19 @@
 <script setup lang="ts">
+
+  defineProps({
+    count: { type: Number, required: true },
+    step: { type: Number, required: true },
+  });
 </script>
 
 <template>
   <div class="stepper-nav">
     <ul>
-      <li>
-        <div>
-          1
-        </div>
-      </li>
-      <li>
-        <div>
-          2
-        </div>
-      </li>
-      <li>
-        <div>
-          3
-        </div>
-      </li>
-      <li>
-        <div>
-          4
+      <li
+        v-for="(index) in count" :key="index"
+      >
+        <div :class="{ active: step == (index - 1)}">
+          {{ index }}
         </div>
       </li>
     </ul>
@@ -48,7 +40,7 @@
         align-items: center;
         justify-content: center;
         user-select: none;
-        &:hover {
+        &:hover, &.active {
           font-weight: 700;
           background-color: var(--light-blue);
           color: var(--marine-blue);

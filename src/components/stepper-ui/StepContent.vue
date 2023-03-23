@@ -1,6 +1,4 @@
 <script setup lang="ts">
-  import PersonalInfo from '../PersonalInfo.vue';
-
   defineProps({
     title: { type: String, required: true },
     description: { type: String, required: true },
@@ -12,7 +10,7 @@
   <div class="card">
     <h2>{{title}}</h2>
     <p>{{description}}</p>
-    <PersonalInfo />
+    <slot></slot>
   </div>
 </template>
 

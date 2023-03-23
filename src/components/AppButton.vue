@@ -1,22 +1,23 @@
 <script setup lang="ts">
-  import type { PropType } from "vue";
+  import type { PropType } from 'vue'
 
   type Type = 'primary' | 'secondary' | 'text'
+  type ButtonType = 'submit' | 'reset' | 'button'
 
   defineProps({
+    buttonType: {
+      type: String as PropType<ButtonType>,
+      default: 'button',
+    },
     type: {
       type: String as PropType<Type>,
       default: 'primary',
-      validator(prop: Type) {
-        // The value must match one of these strings
-        return ['primary', 'secondary', 'text'].includes(prop)
-      }
     },
   })
 </script>
 
 <template>
-  <button :class="type">
+  <button :type="buttonType" :class="type">
     <slot></slot>
   </button>
 </template>
@@ -49,5 +50,3 @@
     }
   }
 </style>
-
-

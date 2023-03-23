@@ -1,18 +1,39 @@
 <script setup lang="ts">
+  import { useSlots, computed } from 'vue'
   import StepperNav from './stepper-ui/StepperNav.vue'
-  import Step from './stepper-ui/StepContent.vue'
+  import StepContent from './stepper-ui/StepContent.vue'
   import StepButtons from './stepper-ui/StepButtons.vue'
 
+  const props = defineProps({
+    step: { type: Number, required: true },
+  });
+
+  const slots = useSlots()
+  const slotCount = (slots.default && slots.default().length) ?? 0
+
+  const emit = defineEmits(['onNext', 'onBack']);
+
+  const activeSlot = computed(() => {
+    if (slots.default) {
+      return slots.default()[props.step]
+    }
+    return null
+  })
 </script>
 
 <template>
   <div class="stepper-container">
-    <StepperNav />
-    <Step
+    <StepperNav
+      :step="step"
+      :count="slotCount"
+    />
+    <StepContent
       title="Personal Info"
       description="Please provide your name, email, address, and phone number."
-    />
-    <StepButtons />
+    >
+      <component :is="() => activeSlot"/>
+    </StepContent>
+    <StepButtons :showBack="step !== 0" @onNext="emit('onNext')"  @onBack="emit('onBack')"/>
   </div>
 </template>
 

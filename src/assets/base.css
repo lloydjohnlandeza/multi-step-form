@@ -54,6 +54,7 @@
   --white: hsl(0, 0%, 100%);
 
   --transition-duration: 0.3s;
+  --transition-generic: all var(--transition-duration) ease;
 
   --h1: 2rem;
   --h2: 1.5rem;
@@ -113,7 +114,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, label {
   color: var(--color-heading);
   font-family: 'Ubuntu';
   font-weight: 700;
@@ -148,4 +149,19 @@ ul, li {
   padding: 0;
   margin: 0;
   list-style-type: none;
+}
+.txt-marine-blue {
+  color: var(--marine-blue);
+}
+.txt-purplish-blue {
+  color: var(--purplish-blue);
+}
+.txt-reg {
+  font-weight: 400;
+}
+.txt-medium {
+  font-weight: 500;
+}
+.txt-bold {
+  font-weight: 700;
 }
