@@ -16,8 +16,9 @@
 
   const store = useFormStore()
   const { form } = storeToRefs(store)
-  const { addOns } = form.value
-
+  const { addOns, plan } = form.value
+  const { billing } = plan
+  const unit = billing === 'yearly' ? '/yr' : '/mo'
   const state = reactive<State>({
     addOnOptions: [
       {
@@ -65,6 +66,7 @@
         :description="item.description"
         :val="item.value"
         :value="selected"
+        :sub="`+${item.amount[billing]}${unit}`"
       />
     </AppBox>
   </div>

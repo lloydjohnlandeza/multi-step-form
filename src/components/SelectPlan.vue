@@ -86,6 +86,7 @@
 </script>
 
 <template>
+  {{ plan.billing }}
   <div class="plans">
     <AppBox
       v-for="(item, index) in state.planOptions" :key="index"

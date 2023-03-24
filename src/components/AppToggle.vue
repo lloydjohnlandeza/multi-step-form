@@ -18,7 +18,7 @@
   <div class="toggle-container">
     <label v-if="labelOff" :class="`text ${!value ? 'on' : ''}`">{{labelOff}}</label>
     <label class="toggle">
-      <input :value="value" @change="handleChange" type="checkbox" />
+      <input :checked="value" @change="handleChange" type="checkbox" />
       <span class="slider"></span>
     </label>
     <label v-if="labelOn" :class="`text ${value ? 'on' : ''}`">{{labelOn}}</label>
