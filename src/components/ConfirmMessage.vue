@@ -41,7 +41,7 @@
     align-items: center;
     padding: 55px 0;
     img {
-        max-width: 70px;
+        max-width: 60px;
     }
     h2 {
       margin: 20px 0 10px;

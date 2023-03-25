@@ -29,6 +29,10 @@
     justify-content: space-between;
     background-color: var(--white);
     padding: 15px 20px;
+    margin-top: auto;
+    @media (min-width: 768px) {
+      padding: 15px 0;
+    }
     *:last-child {
       margin-left: auto;
     }

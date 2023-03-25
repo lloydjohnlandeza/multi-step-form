@@ -17,14 +17,15 @@
     computeTotal += form.value.plan.amount[billing]
     return computeTotal
   })
+  const emit = defineEmits(['changePlan']);
 </script>
 
 <template>
-  <div class="container">
+  <div class="container background">
     <h5 class="txt-medium">{{ form.plan.type }} (<span class="txt-medium txt-capitalize">{{form.plan.billing}}</span>)</h5>
     <ul>
       <li class="divider">
-        <span>
+        <span class="clickable" @click="emit('changePlan')">
           Change
         </span>
         <span class="txt-marine-blue txt-bold">
@@ -71,15 +72,25 @@
       display: flex;
       justify-content: space-between;
       font-size: 14px;
+      padding: 5px 0;
       &.divider {
-
-        padding: 5px 0;
-        margin-bottom: 5px;
+        padding: 0 0 20px;
+        margin-bottom: 10px;
         border-bottom: solid 1px var(--light-gray);
         span {
           &:first-child {
             text-decoration: underline;
           }
+        }
+      }
+    }
+  }
+  @media (max-width: 767px) {
+    ul {
+      li {
+        padding: 2px 0;
+        &.divider {
+          padding: 0 0 10px;
         }
       }
     }

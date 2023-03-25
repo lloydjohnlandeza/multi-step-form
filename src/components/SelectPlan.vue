@@ -146,6 +146,19 @@
       }
     }
   }
+  @media (min-width: 768px) {
+    .plans {
+      flex-direction: row;
+      > .app-card {
+        flex-direction: column;
+        flex: 1;
+        img {
+          max-width: 35px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
 </style>
 
 

@@ -40,6 +40,7 @@
       color: var(--alabaster);
       background-color: transparent;
       font-weight: 700;
+      padding: 12px 0px;
     }
     &:focus, &:hover {
       background-color: var(--alabaster);

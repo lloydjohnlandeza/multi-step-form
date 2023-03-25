@@ -34,24 +34,27 @@ export interface Form {
 }
 
 type UpdatePlanValue<T> = T extends 'billing' ? Billing : string | IAmount
+const initialState = {
+  personalInfo: {
+    name: '',
+    email: '',
+    number: ''
+  },
+  plan: {
+    type: 'Arcade',
+    amount: {
+      yearly: 90,
+      monthly: 9
+    },
+    billing: 'monthly'
+  },
+  addOns: []
+}
+
+const shallowCopyOfInitialState = (s) => JSON.parse(JSON.stringify(s))
 
 export const useFormStore = defineStore('form', () => {
-  const form = reactive<Form>({
-    personalInfo: {
-      name: '',
-      email: '',
-      number: ''
-    },
-    plan: {
-      type: 'Arcade',
-      amount: {
-        yearly: 90,
-        monthly: 9
-      },
-      billing: 'monthly'
-    },
-    addOns: []
-  })
+  let form = reactive<Form>(shallowCopyOfInitialState(initialState))
 
   const updatePersonalInfo = (value: string, name: PersonalInfo) => {
     form.personalInfo[name] = value
@@ -74,5 +77,9 @@ export const useFormStore = defineStore('form', () => {
     return form.plan.billing === 'yearly' ? '/yr' : '/mo'
   })
 
-  return { form, updatePersonalInfo, updatePlan, updateAddOns, unit }
+  const resetToInitial = () => {
+    Object.assign(form, shallowCopyOfInitialState(initialState));
+  }
+
+  return { form, updatePersonalInfo, updatePlan, updateAddOns, resetToInitial, unit }
 })

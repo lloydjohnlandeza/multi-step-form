@@ -8,7 +8,7 @@
 
 <template>
   <div class="card">
-    <h2 v-if="title">{{title}}</h2>
+    <h1 v-if="title">{{title}}</h1>
     <p v-if="description">{{description}}</p>
     <slot></slot>
   </div>
@@ -28,6 +28,12 @@
       padding: 20px;
       margin: 15px;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (min-width: 768px) {
+      h1 {
+        margin-top: 20px;
+      }
     }
   }
 </style>

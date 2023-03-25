@@ -7,6 +7,7 @@
   const props = defineProps({
     step: { type: Number, required: true },
     title: { type: String, required: false },
+    stepsTitle: { type: Array, required: false },
     description: { type: String, required: false },
     showButtons: { type: Boolean, default: true },
   });
@@ -46,6 +47,7 @@
   <StepperNav
     :step="step"
     :count="slotCount"
+    :stepsTitle="stepsTitle"
   />
   <transition name="fade" mode="out-in" >
     <div
@@ -69,7 +71,7 @@
     overflow-x: hidden;
     .fade-enter-active,
     .fade-leave-active {
-      transition: all 0.5s ease;
+      transition: all var(--transition-duration) ease;
     }
     .fade-leave-active {
       transform: translateX(var(--leave));
@@ -90,8 +92,7 @@
     }
     @media (min-width: 768px) {
       display: grid;
-      grid-template-areas: "sidebar content content content content content content content content content content content content content content content content"
-                         "sidebar buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons";
+      grid-template-columns: 265px 1fr;
       flex-direction: column;
       background-color: var(--white);
       border-radius: 20px;
@@ -99,21 +100,18 @@
       margin: 15px;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
       max-width: 800px;
-      gap: 15px;
+      gap: 15px 50px;
       width: 100%;
       margin: auto;
+      height: 100%;
+      max-height: 70%;
       > div {
         &:nth-child(1) {
-          grid-area: sidebar;
+          grid-row: 1/3;
           padding: 20px;
-          width: 200px;
+          max-width: 265px;
+          width: 100%;
           border-radius: 5px;
-        }
-        &:nth-child(2) {
-          grid-area: content;
-        }
-        &:nth-child(3) {
-          grid-area: buttons;
         }
       }
     }

@@ -15,12 +15,13 @@
 
 <template>
   <div class="toggle-container">
-    <label v-if="labelOff" :class="`text on`">{{labelOff}}</label>
+
+    <label v-if="labelOff" class="text" :class="{ on: value  }">{{labelOff}}</label>
     <label class="toggle">
       <input :checked="value" @change="handleChange" type="checkbox" />
       <span class="slider"></span>
     </label>
-    <label v-if="labelOn" :class="`text`">{{labelOn}}</label>
+    <label v-if="labelOn" class="text" :class="{ on: !value  }">{{labelOn}}</label>
   </div>
 </template>
 

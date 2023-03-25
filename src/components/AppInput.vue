@@ -19,7 +19,10 @@
 </script>
 
 <template>
-  <div class="input-container">
+  <div
+    class="input-container"
+    :class="{ 'error': errors?.length}"
+  >
     <label v-if="label" :for="attrs.name">
       <span>{{label}}</span>
       <span v-if="errors?.length">{{displayFirstError}}</span>
@@ -54,7 +57,7 @@
     font-family: 'Ubuntu';
     font-weight: 400;
     padding: 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     color: var(--marine-blue);
     width: 100%;
 
@@ -78,6 +81,13 @@
       border: none;
       outline: none;
       border: solid 1px var(--cool-gray);
+    }
+  }
+  .input-container {
+    &.error {
+      input {
+        border-color: var(--strawberry-red);
+      }
     }
   }
 </style>

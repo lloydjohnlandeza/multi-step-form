@@ -6,11 +6,20 @@
   import AddOns from '@/components/AddOns.vue';
   import FormSummary from '@/components/FormSummary.vue';
   import ConfirmMessage from '@/components/ConfirmMessage.vue';
+  import { useFormStore } from '@/stores/form'
+  import { storeToRefs } from 'pinia';
 
+
+  const store = useFormStore()
+  const { form } = storeToRefs(store)
+
+  const stepsTitle = ref(['Your Info', 'Select Plan', 'Add-ons', 'Summary'])
   const step = ref(0)
   const confirmed = ref(false)
   const personalInfo = ref<InstanceType<typeof PersonalInfo>>()
 
+  // flag to avoid going next/previous page too fast
+  const isAnimating = ref(false)
 
   const stepValidation = async () => {
     switch (step.value) {
@@ -22,6 +31,9 @@
 
   }
   const handleNext = async () => {
+    if (isAnimating.value) return
+    animationTriggered()
+
     const valid = await stepValidation()
     if (step.value === 3) {
       confirmed.value = true
@@ -30,6 +42,25 @@
     if (valid && step.value < 3) {
       step.value++
     }
+
+
+  }
+  const handleBack = () => {
+    if (isAnimating.value) return
+    animationTriggered()
+
+    if (step.value > 0) step.value--
+  }
+  const animationTriggered = () => {
+    isAnimating.value = true
+    setTimeout(() => {
+      isAnimating.value = false
+    }, 600);
+  }
+
+  const handleChangePlan = () => {
+    step.value = 0
+    store.resetToInitial()
   }
 
   const heading = computed(() => {
@@ -60,7 +91,6 @@
     }
     return {}
   })
-
 </script>
 
 <template>
@@ -68,10 +98,11 @@
     <AppStepper
       :title="heading.title"
       :description="heading.description"
+      :stepsTitle="stepsTitle"
       :step="step"
       :showButtons="!confirmed"
       @onNext="handleNext"
-      @onBack="step > 0 && step--"
+      @onBack="handleBack"
     >
       <PersonalInfo
         key="1"
@@ -85,6 +116,7 @@
       />
       <FormSummary
         key="4"
+        @changePlan="handleChangePlan"
         v-if="!confirmed"
       />
       <ConfirmMessage key="5" v-else />
