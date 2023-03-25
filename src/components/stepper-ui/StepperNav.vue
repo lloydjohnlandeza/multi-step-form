@@ -24,6 +24,7 @@
   .stepper-nav {
     display: flex;
     background: url('../../assets/bg-sidebar-mobile.svg') no-repeat center center/cover;
+    height: 100%;
   }
   ul {
     display: flex;

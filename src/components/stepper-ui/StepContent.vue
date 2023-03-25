@@ -1,15 +1,15 @@
 <script setup lang="ts">
   defineProps({
-    title: { type: String, required: true },
-    description: { type: String, required: true },
+    title: { type: String, required: false },
+    description: { type: String, required: false },
   })
 
 </script>
 
 <template>
   <div class="card">
-    <h2>{{title}}</h2>
-    <p>{{description}}</p>
+    <h2 v-if="title">{{title}}</h2>
+    <p v-if="description">{{description}}</p>
     <slot></slot>
   </div>
 </template>

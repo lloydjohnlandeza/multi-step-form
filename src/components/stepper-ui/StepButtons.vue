@@ -1,18 +1,24 @@
 <script setup lang="ts">
+  import { computed } from 'vue';
   import AppButton from '../AppButton.vue'
 
-  defineProps({
+  const props = defineProps({
     showBack: { type: Boolean, default: true },
+    lastStep: { type: Boolean, default: false }
   });
 
   const emit = defineEmits(['onNext', 'onBack']);
-
+  const nextLabel = computed(() => {
+    return props.lastStep ? 'Confirm' : 'Next Step'
+  })
 </script>
 
 <template>
   <div class="button-container">
     <AppButton v-if="showBack"  @click="emit('onBack')" type="text">Go Back</AppButton>
-    <AppButton @click="emit('onNext')" type="primary">Next Step</AppButton>
+    <AppButton @click="emit('onNext')" :type="props.lastStep ? 'primary' : 'secondary'">
+      {{ nextLabel }}
+    </AppButton>
   </div>
 </template>
 

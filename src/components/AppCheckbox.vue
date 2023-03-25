@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { defineEmits, computed } from 'vue';
+  import { computed } from 'vue';
 
   function isArray<T>(value: T | Array<T>): value is Array<T> {
     return Array.isArray(value);
@@ -45,7 +45,7 @@
 
 <template>
   <div @click="handleChange" class="app-checkbox">
-    <input type='checkbox' :checked="isChecked" />
+    <input tab="0" type='checkbox' :checked="isChecked" />
     <label>
       <span></span>
       <div class="text">

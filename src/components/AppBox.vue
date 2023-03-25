@@ -7,7 +7,7 @@
 </script>
 
 <template>
-  <div :class="`app-card ${active ? 'active' : ''}`">
+  <div tabindex="0" :class="`app-card ${active ? 'active' : ''}`">
     <slot></slot>
   </div>
 </template>

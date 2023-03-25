@@ -30,12 +30,12 @@
       {
         title: 'Arcade',
         description: {
-          monthly: '$90/yr',
-          yearly: '$9/mo'
+          yearly: '$90/yr',
+          monthly: '$9/mo'
         },
         amount: {
-          monthly: 90,
-          yearly: 9
+          yearly: 90,
+          monthly: 9
         },
         subdescription: '2 months free',
         src: arcade
@@ -43,12 +43,12 @@
       {
         title: 'Advanced',
         description: {
-          monthly: '$120/yr',
-          yearly: '$12/mo'
+          yearly: '$120/yr',
+          monthly: '$12/mo'
         },
         amount: {
-          monthly: 120,
-          yearly: 12
+          yearly: 120,
+          monthly: 12
         },
         subdescription: '2 months free',
         src: advanced
@@ -56,12 +56,12 @@
       {
         title: 'Pro',
         description: {
-          monthly: '$150/yr',
-          yearly: '$15/mo'
+          yearly: '$150/yr',
+          monthly: '$15/mo'
         },
         amount: {
-          monthly: 150,
-          yearly: 15
+          yearly: 150,
+          monthly: 15
         },
         subdescription: '2 months free',
         src: pro
@@ -86,11 +86,11 @@
 </script>
 
 <template>
-  {{ plan.billing }}
   <div class="plans">
     <AppBox
       v-for="(item, index) in state.planOptions" :key="index"
       :active="item.title === plan.type"
+      @keyup.enter="handleUpdatePlan(item, 'type')"
       @click="handleUpdatePlan(item, 'type')"
     >
       <img :src="item.src" />

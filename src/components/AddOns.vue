@@ -15,10 +15,10 @@
   }
 
   const store = useFormStore()
-  const { form } = storeToRefs(store)
+  const { form, unit } = storeToRefs(store)
   const { addOns, plan } = form.value
   const { billing } = plan
-  const unit = billing === 'yearly' ? '/yr' : '/mo'
+
   const state = reactive<State>({
     addOnOptions: [
       {
@@ -59,6 +59,7 @@
   <div class="plans">
     <AppBox
       v-for="(item, index) in state.addOnOptions" :key="index"
+      @keyup.enter="store.updateAddOns({ addon: item.value, label: item.label, amount: item.amount})"
       @click="store.updateAddOns({ addon: item.value, label: item.label, amount: item.amount})"
     >
       <AppCheckbox

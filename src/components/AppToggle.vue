@@ -1,5 +1,4 @@
 <script setup lang="ts">
-  import { defineEmits } from 'vue';
 
   const props = defineProps({
     labelOff: { type: String, required: false },
@@ -16,12 +15,12 @@
 
 <template>
   <div class="toggle-container">
-    <label v-if="labelOff" :class="`text ${!value ? 'on' : ''}`">{{labelOff}}</label>
+    <label v-if="labelOff" :class="`text on`">{{labelOff}}</label>
     <label class="toggle">
       <input :checked="value" @change="handleChange" type="checkbox" />
       <span class="slider"></span>
     </label>
-    <label v-if="labelOn" :class="`text ${value ? 'on' : ''}`">{{labelOn}}</label>
+    <label v-if="labelOn" :class="`text`">{{labelOn}}</label>
   </div>
 </template>
 

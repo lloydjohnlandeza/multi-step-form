@@ -1,4 +1,4 @@
-import { reactive } from 'vue'
+import { reactive, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 export type PersonalInfo = 'name' | 'email' | 'number'
@@ -70,5 +70,9 @@ export const useFormStore = defineStore('form', () => {
     }
   }
 
-  return { form, updatePersonalInfo, updatePlan, updateAddOns }
+  const unit = computed(() => {
+    return form.plan.billing === 'yearly' ? '/yr' : '/mo'
+  })
+
+  return { form, updatePersonalInfo, updatePlan, updateAddOns, unit }
 })
