@@ -23,9 +23,9 @@
 <template>
   <div class="container">
     <img :src="IconThankYou" />
-    <h1>
+    <h2>
       Thank you!
-    </h1>
+    </h2>
     <p>
       Thanks for confirming your subscription! We hope you have fun using our platform.
       If you ever need support, please feel free to email us at support@loremgaming.com
@@ -40,17 +40,18 @@
     justify-content: center;
     align-items: center;
     padding: 55px 0;
-    h1 {
-      margin: 0;
+    img {
+        max-width: 70px;
+    }
+    h2 {
+      margin: 20px 0 10px;
+      font-size: 24px;
     }
     p {
       text-align: center;
     }
     max-width: 100%;
     @media (max-width: 767px) {
-      img {
-        max-width: 70px;
-      }
       p {
         max-width: 300px;
       }

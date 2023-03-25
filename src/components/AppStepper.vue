@@ -66,7 +66,6 @@
 <style lang="scss" scoped>
   .stepper-container {
     display: flex;
-
     overflow-x: hidden;
     .fade-enter-active,
     .fade-leave-active {
@@ -88,6 +87,35 @@
     .fade-enter-from {
       transform: translateX(var(--enter));
       opacity: 0;
+    }
+    @media (min-width: 768px) {
+      display: grid;
+      grid-template-areas: "sidebar content content content content content content content content content content content content content content content content"
+                         "sidebar buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons buttons";
+      flex-direction: column;
+      background-color: var(--white);
+      border-radius: 20px;
+      padding: 20px;
+      margin: 15px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      gap: 15px;
+      width: 100%;
+      margin: auto;
+      > div {
+        &:nth-child(1) {
+          grid-area: sidebar;
+          padding: 20px;
+          width: 200px;
+          border-radius: 5px;
+        }
+        &:nth-child(2) {
+          grid-area: content;
+        }
+        &:nth-child(3) {
+          grid-area: buttons;
+        }
+      }
     }
     @media (max-width: 767px) {
       height: 100vh;

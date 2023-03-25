@@ -16,7 +16,7 @@
 <template>
   <div class="button-container">
     <AppButton v-if="showBack"  @click="emit('onBack')" type="text">Go Back</AppButton>
-    <AppButton @click="emit('onNext')" :type="props.lastStep ? 'primary' : 'secondary'">
+    <AppButton @click="emit('onNext')" :type="!props.lastStep ? 'primary' : 'secondary'">
       {{ nextLabel }}
     </AppButton>
   </div>

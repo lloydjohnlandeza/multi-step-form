@@ -23,8 +23,7 @@
 <style lang="scss" scoped>
   .stepper-nav {
     display: flex;
-    background: url('../../assets/bg-sidebar-mobile.svg') no-repeat center center/cover;
-    height: 100%;
+    background: url('../../assets/bg-sidebar-desktop.svg') no-repeat center center/cover;
   }
   ul {
     display: flex;
@@ -47,6 +46,15 @@
           color: var(--marine-blue);
         }
       }
+    }
+  }
+  @media (min-width: 768px) {
+    .stepper-nav {
+      flex: 1;
+    }
+    ul {
+      flex-direction: column;
+
     }
   }
   @media (max-width: 767px) {
