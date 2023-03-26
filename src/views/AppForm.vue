@@ -89,6 +89,12 @@
     }
     return {}
   })
+
+  const personalInfoSubmit = async () => {
+    console.log('hi')
+    step.value = 1
+  }
+
 </script>
 
 <template>
@@ -105,6 +111,7 @@
       <PersonalInfo
         key="1"
         ref="personalInfo"
+        @formSubmit="personalInfoSubmit"
       />
       <SelectPlan
         key="2"
