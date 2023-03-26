@@ -1,3 +1,9 @@
+<script lang="ts">
+  export default {
+    name: 'AppInput',
+    inheritAttrs: false,
+  }
+</script>
 <script setup lang="ts">
   import { useAttrs, computed } from 'vue';
   import type { InputHTMLAttributes } from 'vue';
@@ -23,7 +29,7 @@
     class="input-container"
     :class="{ 'error': errors?.length}"
   >
-    <label v-if="label" :for="attrs.name">
+    <label v-if="label">
       <span>{{label}}</span>
       <span v-if="errors?.length">{{displayFirstError}}</span>
     </label>
