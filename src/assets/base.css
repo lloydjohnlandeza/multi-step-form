@@ -1,39 +1,60 @@
 /* color palette from <https://github.com/vuejs/theme> */
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./fonts/Ubuntu-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./fonts/Ubuntu-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('./fonts/Ubuntu-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
 :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
 
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
+  --marine-blue: hsl(213, 96%, 18%);
+  --purplish-blue: hsl(243, 100%, 62%);
+  --pastel-blue: hsl(228, 100%, 84%);
+  --light-blue: hsl(206, 94%, 87%);
+  --strawberry-red: hsl(354, 84%, 57%);
 
-  --vt-c-indigo: #2c3e50;
+  --cool-gray: hsl(231, 11%, 63%);
+  --light-gray: hsl(229, 24%, 87%);
+  --magnolia: hsl(217, 100%, 97%);
+  --alabaster: hsl(228, 49%, 59%);
+  --white: hsl(0, 0%, 100%);
 
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
+  --transition-duration: 0.3s;
+  --transition-generic: all var(--transition-duration) ease;
 
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
+  --h1: 2rem;
+  --h2: 1.5rem;
+  --h3: 1.25rem;
+  --h4: 1.125rem;
+  --h5: 1rem;
+  --h6: 0.875rem;
+
 }
 
 /* semantic color variables for this project */
 :root {
-  --color-background: var(--vt-c-white);
-  --color-background-soft: var(--vt-c-white-soft);
-  --color-background-mute: var(--vt-c-white-mute);
+  --color-background: var(--magnolia);
 
-  --color-border: var(--vt-c-divider-light-2);
-  --color-border-hover: var(--vt-c-divider-light-1);
+  --color-border: var(--light-blue);
+  /* --color-border-hover: var(--vt-c-divider-light-1); */
 
-  --color-heading: var(--vt-c-text-light-1);
-  --color-text: var(--vt-c-text-light-1);
-
-  --section-gap: 160px;
+  --color-heading: var(--marine-blue);
+  --color-text: var(--cool-gray);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -58,17 +79,74 @@
   position: relative;
   font-weight: normal;
 }
-
+html, body, #app {
+  height: 100%;
+}
 body {
   min-height: 100vh;
   color: var(--color-text);
   background: var(--color-background);
-  transition: color 0.5s, background-color 0.5s;
+  transition: color var(--transition-duration), background-color var(--transition-duration);
   line-height: 1.6;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-    Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 15px;
+  font-family: 'Ubuntu';
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.clickable {
+  cursor: pointer;
+}
+h1, h2, h3, h4, h5, h6, label {
+  color: var(--color-heading);
+  font-family: 'Ubuntu';
+  font-weight: 700;
+  font-style: normal;
+}
+
+h1 {
+  font-size: var(--h1)
+}
+
+h2 {
+  font-size: var(--h2)
+}
+
+h3 {
+  font-size: var(--h3)
+}
+
+h4 {
+  font-size: var(--h4)
+}
+
+h5 {
+  font-size: var(--h5)
+}
+
+h6 {
+  font-size: var(--h6)
+}
+
+ul, li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+.txt-marine-blue {
+  color: var(--marine-blue);
+}
+.txt-purplish-blue {
+  color: var(--purplish-blue);
+}
+.txt-reg {
+  font-weight: 400;
+}
+.txt-medium {
+  font-weight: 500;
+}
+.txt-bold {
+  font-weight: 700;
 }
