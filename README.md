@@ -64,8 +64,7 @@ One of the challenges I faced during this challenged was adding a type to the va
 ```ts
   type UpdatePlanValue<T> = T extends 'billing' ? Billing : T extends 'amount' ? IAmount : string;
   const updatePlan = <T extends PlanProperties>(value: UpdatePlanValue<T>, name: T) => {
-    form.plan[name] = value;
-    return form.plan[name];
+    (form.plan[name] as UpdatePlanValue<T>) = value
   }
 ```
 
