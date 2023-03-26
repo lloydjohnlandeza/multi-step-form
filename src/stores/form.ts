@@ -35,7 +35,8 @@ export interface Form {
 
 type UpdatePlanValue<T> = T extends 'billing' ? Billing : T extends 'amount' ? IAmount : string
 
-const initialState = {
+
+const initialState: Form = {
   personalInfo: {
     name: '',
     email: '',
@@ -52,7 +53,7 @@ const initialState = {
   addOns: []
 }
 
-const shallowCopyOfInitialState = (s) => JSON.parse(JSON.stringify(s))
+const shallowCopyOfInitialState = (s: Form) => JSON.parse(JSON.stringify(s))
 
 export const useFormStore = defineStore('form', () => {
   const form = reactive<Form>(shallowCopyOfInitialState(initialState))
@@ -62,7 +63,7 @@ export const useFormStore = defineStore('form', () => {
   }
 
   const updatePlan = <T extends PlanProperties>(value: UpdatePlanValue<T>, name: T) => {
-    form.plan[name] = value
+    (form.plan[name] as UpdatePlanValue<T>) = value
   }
 
   const updateAddOns = (value: IAddon) => {
