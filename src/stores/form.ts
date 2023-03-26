@@ -33,7 +33,8 @@ export interface Form {
   addOns: Array<IAddon>
 }
 
-type UpdatePlanValue<T> = T extends 'billing' ? Billing : string | IAmount
+type UpdatePlanValue<T> = T extends 'billing' ? Billing : T extends 'amount' ? IAmount : string
+
 const initialState = {
   personalInfo: {
     name: '',
@@ -61,7 +62,7 @@ export const useFormStore = defineStore('form', () => {
   }
 
   const updatePlan = <T extends PlanProperties>(value: UpdatePlanValue<T>, name: T) => {
-    ;(form.plan[name] as UpdatePlanValue<T>) = value
+    form.plan[name] = value
   }
 
   const updateAddOns = (value: IAddon) => {
