@@ -91,7 +91,6 @@
   })
 
   const personalInfoSubmit = async () => {
-    console.log('hi')
     step.value = 1
   }
 
