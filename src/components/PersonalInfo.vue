@@ -32,8 +32,19 @@
   }
   const vuelidate = useVuelidate(formValidation, personalInfo)
 
-  const formSubmit = async () => {
-    return await vuelidate.value.$validate()
+  const emit = defineEmits<{
+    (event: 'formSubmit', value: boolean): Promise<boolean>;
+  }>();
+
+  const formSubmit = async <T extends InputEvent = InputEvent>(e?: T): Promise<boolean> => {
+    const result = await vuelidate.value.$validate()
+
+    if (e !== undefined) {
+      e.stopPropagation()
+      emit('formSubmit', result)
+    }
+
+    return result
   }
 
   defineExpose({ formSubmit })
@@ -42,7 +53,7 @@
 <template>
   <AppInput :errors="vuelidate.name.$errors" :value="personalInfo.name" @blur="handleBlur('name')" @input="handleInput($event.target.value, 'name')" type="text" name="name" placeholder="e.g. Stephen King" label="Name" />
   <AppInput :errors="vuelidate.email.$errors" :value="personalInfo.email" @blur="handleBlur('email')" @input="handleInput($event.target.value, 'email')" type="email" name="email" placeholder="e.g. stephenking@lorem.com" label="Email Address" />
-  <AppInput :errors="vuelidate.number.$errors" :value="personalInfo.number" @blur="handleBlur('number')" @input="handleInput($event.target.value, 'number')" type="text" name="number" placeholder="e.g. +1 234 567 890" label="Phone Number" />
+  <AppInput :errors="vuelidate.number.$errors" :value="personalInfo.number" @keyup.enter.prevent="formSubmit" @blur="handleBlur('number')" @input="handleInput($event.target.value, 'number')" type="text" name="number" placeholder="e.g. +1 234 567 890" label="Phone Number" />
 </template>
 
 <style lang="scss" scoped>

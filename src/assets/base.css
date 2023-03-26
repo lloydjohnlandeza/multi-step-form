@@ -51,7 +51,6 @@
   --color-background: var(--magnolia);
 
   --color-border: var(--light-blue);
-  /* --color-border-hover: var(--vt-c-divider-light-1); */
 
   --color-heading: var(--marine-blue);
   --color-text: var(--cool-gray);
@@ -84,6 +83,7 @@ html, body, #app {
 }
 body {
   min-height: 100vh;
+  min-height: 100dvh;
   color: var(--color-text);
   background: var(--color-background);
   transition: color var(--transition-duration), background-color var(--transition-duration);
