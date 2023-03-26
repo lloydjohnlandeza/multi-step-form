@@ -1,23 +1,5 @@
 <script setup lang="ts">
-  import { useFormStore } from '@/stores/form'
-  import { storeToRefs } from 'pinia';
-  import { computed } from 'vue';
   import IconThankYou from '../assets/icon-thank-you.svg'
-
-  const store = useFormStore()
-  const { form } = storeToRefs(store)
-  const billing = form.value.plan.billing
-  const unit = billing === 'yearly' ? '/yr' : '/mo'
-
-  const total = computed(() => {
-    let computeTotal = 0
-    for (let index = 0; index < form.value.addOns.length; index++) {
-      const { amount } = form.value.addOns[index];
-      computeTotal += amount[billing]
-    }
-    computeTotal += form.value.plan.amount[billing]
-    return computeTotal
-  })
 </script>
 
 <template>

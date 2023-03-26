@@ -3,7 +3,7 @@
   defineProps({
     count: { type: Number, required: true },
     step: { type: Number, required: true },
-    stepsTitle: { type: Array, default: [] }
+    stepsTitle: { type: Array, default: () => [] }
   });
 </script>
 

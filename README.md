@@ -48,14 +48,13 @@ Users should be able to:
 
 - [Vue](https://vuejs.org/) - JS library
 - Typescript
-- Pinia - State management
+- [Pinia](https://pinia.vuejs.org/) - State management
 - Vuelidate and yup - Validation
 - Mobile-first workflow
 - CSS custom properties
 - Flexbox
 - CSS Grid
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
 ### What I learned
 During this challenged, I had the opportunity to work with Vue 3 and Pinia for the first time. I found them to be more enjoyable and intuitive to use compared to Vue 2 and Vuex. I also gained a better understanding of TypeScript generics and learned how to use the extends keyword as a condition.
@@ -126,5 +125,5 @@ npm run lint
 ## Author
 
 - Website - [Lloyd John Landeza](https://lloydjohncodes.netlify.com/)
-- Frontend Mentor - [@lloydjohnlandeza](  )
+- Frontend Mentor - [@lloydjohnlandeza](https://www.frontendmentor.io/profile/lloydjohnlandeza)
 - Linkedin - [Lloyd John Landeza](https://www.linkedin.com/in/lloydjohnlandeza/)

@@ -7,11 +7,9 @@
   import FormSummary from '@/components/FormSummary.vue';
   import ConfirmMessage from '@/components/ConfirmMessage.vue';
   import { useFormStore } from '@/stores/form'
-  import { storeToRefs } from 'pinia';
 
 
   const store = useFormStore()
-  const { form } = storeToRefs(store)
 
   const stepsTitle = ref(['Your Info', 'Select Plan', 'Add-ons', 'Summary'])
   const step = ref(0)

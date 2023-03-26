@@ -55,7 +55,7 @@ const initialState = {
 const shallowCopyOfInitialState = (s) => JSON.parse(JSON.stringify(s))
 
 export const useFormStore = defineStore('form', () => {
-  let form = reactive<Form>(shallowCopyOfInitialState(initialState))
+  const form = reactive<Form>(shallowCopyOfInitialState(initialState))
 
   const updatePersonalInfo = (value: string, name: PersonalInfo) => {
     form.personalInfo[name] = value
