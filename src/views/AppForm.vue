@@ -90,8 +90,8 @@
     return {}
   })
 
-  const personalInfoSubmit = async () => {
-    step.value = 1
+  const personalInfoSubmit = async (e: boolean) => {
+    if (e) step.value = 1
   }
 
 </script>
