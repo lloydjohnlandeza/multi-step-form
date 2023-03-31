@@ -38,8 +38,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](TBD)
-- Live Site URL: [Add live site URL here](TBD)
+- Solution URL: [https://www.frontendmentor.io/solutions/i-used-vue-for-js-pinia-for-state-management-and-plain-old-css-for-ui-LwmSe6FE2r](https://www.frontendmentor.io/solutions/i-used-vue-for-js-pinia-for-state-management-and-plain-old-css-for-ui-LwmSe6FE2r)
+- Live Site URL: [https://lj-multi-step-form.netlify.app/](https://lj-multi-step-form.netlify.app/)
 
 ## My process
 
