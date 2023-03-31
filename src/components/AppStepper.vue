@@ -99,12 +99,12 @@
       padding: 20px;
       margin: 15px;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-      max-width: 800px;
       gap: 15px 50px;
       width: 100%;
       margin: auto;
       height: 100%;
-      max-height: 70%;
+      max-width: 940px;
+      max-height: 600px;
       > div {
         &:nth-child(1) {
           grid-row: 1/3;
